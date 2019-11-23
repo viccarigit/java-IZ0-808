@@ -1,0 +1,90 @@
+1 - Variaveis Locais
+    * Declaradas dentro de um bloco, normalmente dentro de chaves (escopo)
+    * Podem ser declaradas dentro de metodos (locais do metodo)
+    * Usar variaveis locais fora do escopo gera erro de compilacao
+    * Parametros de metodos sao considerados variaveis locais do metodo
+
+
+    // EX 01
+    public void m1(){ // method opening
+       int x = 10; // method local variable 
+    } // method closing
+
+   // EX 02
+   public void m1(){ // method opening
+       int x = 10; // method local variable
+       
+       if(x >= 10){ // if - opening
+           int y = 50; // if local variable
+           System.out.println(y);
+ 
+       } // if closing
+   } // method closing
+
+   // EX 03
+   for(int i = 0; j = 0; i++)
+       j++;
+
+   System.out.println(j); // compilation error
+   
+   // EX 04
+   class Test{
+      
+       public void m1(String s){
+           System.out.println(s);
+       }
+
+       public void m2(){
+           System.out.println(s); // compilation error
+       }
+   } 
+  
+
+2 - Variaveis de Instancia
+    * Sao os atributos do objeto
+    * Sao declaradas fora de metodos e construtor(es)
+    * Podem ser acessadas por qualquer membro da classe em instancia
+    * Preferencialmente usar a palavra reservada this ao acessa-las
+
+    // EX 01
+    class Person {
+        
+        String name; // instance or object variable
+
+        public void setNome(String n){
+            this.name = n; // explicit (this) instance variable access
+        }
+    }
+    
+3 - Variaveis Estaticas
+    * Declarar usando a palavra chave static
+    * Sao compartilhadas por todas as instancias
+    * Ficam carradas enquanto a classe estiver na memoria
+    * Podem ser acessadas diretamente a partir da classe (depende da definicao de visibilidade da variavel)
+    
+    // EX 01
+    class Person {
+        static int count = 15; // static declaration and definition
+    } 
+
+    // EX 02
+    class Person {
+        static ind id = 15;
+    } 
+
+    class Test {
+        public static void main(String args[]){
+            Person p = new Person();
+            System.out.println(p.id); // instance reference access: 15            
+            System.out.println(Person.id); // class reference access: 15
+        }
+    }
+
+4 - Variaveis com o mesmo nome
+    * Nao eh possivel declarar variaveis com o mesmo nome no mesmo escopo
+    * Em casos de ambiguidade sera gerado um erro em tempo de compilacao (ex. variaveis de classe e instancia com o mesmo nome)
+    * Eh permitido declarar variaveis locais ou de parametros com o mesmo nome das variaveis de instancia ou de classe
+    * Nos casos do item acima, se nao usar a palavra chave this, o compilador utilizara a variavel de menor escopo
+
+     
+    
